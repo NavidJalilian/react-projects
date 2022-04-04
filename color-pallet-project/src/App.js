@@ -1,4 +1,4 @@
-import React, { isValidElement, useState } from "react";
+import React, { useState } from "react";
 import SingleColor from "./SingleColor";
 
 import Values from "values.js";
