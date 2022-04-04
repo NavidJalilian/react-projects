@@ -26,8 +26,8 @@ function App() {
           id="amount"
           value={count}
           onChange={(e) => setCount(e.target.value)}
-          // max="10"
-          // min="1"
+          max="10"
+          min="1"
         />
         <button type="submit" className="btn">
           Generate
