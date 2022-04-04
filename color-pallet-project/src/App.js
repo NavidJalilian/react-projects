@@ -6,22 +6,25 @@ import Values from "values.js";
 function App() {
   const [color, setColor] = useState("");
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(new Values("#f15025").all(10));
 
   function isValid(e) {
+    console.log("changed");
     setColor(e.target.value);
+    try {
+      handleSubmit(e);
+    } catch (e) {
+      setError(true);
+    }
     setError(false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (e.target.value > 0) {
-      setError(false);
-    }
+
     try {
       const colors = new Values(color).all(10);
       setList(colors);
-      console.log(colors);
     } catch (e) {
       setError(true);
     }
@@ -34,9 +37,11 @@ function App() {
           <input
             type="text"
             value={color}
+            onFocus={() => setColor("#")}
             onChange={(e) => isValid(e)}
-            placeholder="enter color : #15025"
+            placeholder="Enter color : #15025"
             className={`${error ? "error" : ""} `}
+            maxLength="8"
           />
           <button type="submit" className="btn">
             generate
@@ -45,7 +50,7 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => (
-          <SingleColor key={index} {...color} />
+          <SingleColor key={index} {...color} index={index} />
         ))}
       </section>
     </>
