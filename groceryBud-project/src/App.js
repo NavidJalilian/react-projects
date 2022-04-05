@@ -50,7 +50,7 @@ function App() {
       return;
     }
     setList([]);
-    setAlert({ show: true, msg: "empty list", type: "danger" });
+    setAlert({ show: true, msg: "empty list", type: "success" });
     setList([]);
   }
 

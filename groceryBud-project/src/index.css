@@ -209,12 +209,12 @@ Grocery List
 }
 
 .alert-danger {
-  color: #721c24;
+  color: #dac8c9;
   font-weight: bold;
-  background: #f8d7da;
+  background: #af1320;
 }
 .alert-success {
-  color: wheat;
+  color: white;
   background-color: #208d39;
 }
 .grocery-form h3 {
