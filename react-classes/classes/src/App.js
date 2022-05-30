@@ -1,18 +1,23 @@
 import React from "react";
-import Card from "./components/Card";
-import Navbar from "./components/Navbar";
-import cookyImg from "./images/CmLnAO.jpg";
-import pic from "./images/react-tutorial-start-screen.3a47fbd6dc.png";
-import Data from "./components/Data";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./pages/Navbar";
+import Shope from "./pages/Shope";
+
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import Contact from "./pages/Contact";
+
 export default function App() {
   return (
     <>
-      <Navbar />
-      <div className="gallery">
-        {Data.map(({id,title,imageUrl}) => (
-          <Card url={imageUrl} title={title} key={id} />
-        ))}
-      </div>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path="Shope" element={<Shope />} />
+          <Route path="Contact" element={<Contact />} />
+          <Route path="Sign-in" element={<SignIn />} />
+        </Route>
+      </Routes>
     </>
   );
 }

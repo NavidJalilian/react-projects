@@ -2,24 +2,23 @@
   border: 1px solid black;
   text-align: center;
   position: relative;
+  cursor: pointer;
+  overflow: hidden;
   flex: 1 0 400px;
-  transition: transform 5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .card > img {
-  width: 100%;
-  display: block;
-  height: 100%;
   object-fit: cover;
+  transition: transform 5s cubic-bezier(0.26, 0.25, 0.28, 0.67);
+  height: 100%;
 }
 .card-heading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 
   background-color: rgba(238, 220, 220, 0.678);
-  padding: 1em;
+  padding: 0.5em 1em;
   color: rgb(99, 95, 95);
   text-transform: uppercase;
   border: 2px solid rgb(5, 4, 4);
@@ -29,8 +28,8 @@
   font-size: 1.75rem;
   transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.card:hover {
-  transform: scale(1.06);
+.card:hover > img {
+  transform: scale(1.1);
 }
 .card:hover > .card-heading {
   color: black;
