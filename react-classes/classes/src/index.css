@@ -10,8 +10,9 @@ a {
   text-decoration: none;
   display: block;
   color: inherit;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.5px;
+  cursor: pointer;
 }
 a:hover {
   color: black;
@@ -23,8 +24,84 @@ img {
 ul {
   list-style: none;
 }
+
+input {
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+.btn {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-google {
+  background-color: #4285f4 !important;
+  color: white !important;
+}
+.btn-google:hover {
+  background-color: #357ae8 !important;
+  border: none;
+}
+.btn-inverted {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+.btn-inverted:hover {
+  background-color: black !important;
+  color: white !important;
+}
+.error {
+  text-transform: capitalize;
+  padding: 1em;
+  background: pink;
+  color: rgb(104, 17, 17);
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+
   padding: 0 2em;
   color: gray;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-right: 3px solid #333;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
 }

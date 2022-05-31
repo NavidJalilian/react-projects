@@ -20,6 +20,29 @@
 .navbar-logo > a > img {
   transform: scale(3);
 }
+.cart-logo {
+  overflow: visible;
+  position: relative;
+}
+.cart-logo::after {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  min-width: 70%;
+  min-height: 70%;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 1px;
+  bottom: -5px;
+  right: -5px;
+}
+.cart-logo > img {
+  /* width: 3rem; */
+
+  transform: scale(1.2);
+}
 a {
   overflow: hidden;
 }

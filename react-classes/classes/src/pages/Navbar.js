@@ -23,7 +23,7 @@ export default function Navbar() {
             <Link to="Sign-in">sign in</Link>
           </li>
           <li>
-            <Link to="">
+            <Link to="" className="cart-logo">
               <img src={cart} alt="" />
             </Link>
           </li>

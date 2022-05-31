@@ -1,0 +1,59 @@
+.signUpForm > form {
+  padding: 1em;
+  max-width: 500px;
+}
+.signUpForm > form > div {
+  position: relative;
+  margin: 1em 0;
+}
+.signUpForm > h1 {
+  text-transform: capitalize;
+}
+.input {
+  padding: 0.5em;
+  background: linear-gradient(90deg, black, black) center bottom/0 2px no-repeat,
+    linear-gradient(90deg, #eee, #eee) center bottom/100% no-repeat;
+  height: 8vmin;
+  transition: background-size 0.2s ease-in-out;
+}
+.label {
+  text-transform: capitalize;
+  font-size: 1em;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  border-radius: 5px;
+}
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  border-bottom: 1px solid #ccc;
+  top: -5%;
+  font-size: 0.8em;
+  padding: 0.2em;
+  color: #000;
+  background-color: white;
+
+  transition: all 0.2s ease-in-out;
+}
+.input:focus {
+  background-size: 100% 2px, 100%;
+}
+.input:valid {
+  background-color: aqua;
+}
+.input {
+}
+.error-notif::after {
+  position: relative;
+  position: absolute;
+  text-transform: capitalize;
+  top: 0;
+  right: 0;
+  content: attr(data-error);
+  z-index: 10;
+  /* background: pink; */
+  color: red;
+  padding: 0.3em 0.7em;
+}
