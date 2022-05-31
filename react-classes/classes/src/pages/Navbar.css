@@ -46,16 +46,4 @@
 a {
   overflow: hidden;
 }
-@media (max-width: 500px) {
-  body {
-    font-size: 0.9rem;
-    /* padding: 0; */
-  }
-  .card {
-    flex-basis: 250px !important;
-  }
-  .navbar {
-    display: flex;
-    justify-content: none;
-  }
-}
+

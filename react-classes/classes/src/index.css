@@ -39,22 +39,18 @@ button {
   outline: none;
 }
 .btn {
-  min-width: 165px;
-  width: auto;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
-  padding: 0 35px 0 35px;
-  font-size: 15px;
+  padding: 0 1em 0;
+  font-size: 1rem;
   background-color: black;
   color: white;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-family: inherit;
   font-weight: bolder;
   border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
 }
 .btn:hover {
   background-color: white;
@@ -86,7 +82,23 @@ button {
   background: pink;
   color: rgb(104, 17, 17);
 }
-
+.center {
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+.sign-out-link {
+  padding: 0.5em;
+  cursor: pointer;
+  border: 1px solid rgb(160, 13, 38);
+  color: rgb(160, 13, 38);
+  border-radius: 5px;
+}
+.sign-out-link:hover {
+  background-color: rgb(160, 13, 38);
+  color: white;
+}
 body {
   font-family: "Roboto", sans-serif;
 
@@ -103,5 +115,21 @@ body {
 @keyframes spin {
   to {
     transform: rotate(1turn);
+  }
+}
+@media (max-width: 500px) {
+  body {
+    font-size: 0.9rem;
+    padding: 0.5em;
+  }
+  .card {
+    flex-basis: 250px !important;
+  }
+  .navbar {
+    display: flex;
+    justify-content: none;
+  }
+  .btn {
+    font-size: 0.8rem;
   }
 }

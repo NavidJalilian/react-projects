@@ -5,7 +5,7 @@ import {
 } from "../utils/firebase";
 import "./SignUpForm.css";
 import FormInput from "./FormInput";
-
+import { Link } from "react-router-dom";
 const defaultFormState = {
   displayName: "",
   email: "",
@@ -52,7 +52,6 @@ export default function SignUpForm() {
         setEmailIsUsed(true);
         setFormState(defaultFormState);
       }
-      console.log(e);
     }
   };
 
@@ -61,8 +60,8 @@ export default function SignUpForm() {
 
   return (
     <>
-      <section className="signUpForm">
-        <span>Sign Up With Email And Password</span>
+      <section className="formContainer ">
+        <span className="">Sign Up With Email And Password</span>
         <form action="" onSubmit={handleSubmit}>
           <div
             className={emailIsUsed ? "error-notif" : ""}
@@ -121,7 +120,7 @@ export default function SignUpForm() {
             />
           </div>
 
-          <a>Don't Have A Account?</a>
+          <Link to="/Auth">Have A Account?</Link>
           <br />
           <button type="submit" className="btn">
             sign up

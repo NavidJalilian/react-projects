@@ -3,7 +3,13 @@ import logo from "../images/crown.png";
 import "./Navbar.css";
 import cart from "../images/cart.png";
 import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../components/Context";
+import { signOutUser } from "../utils/firebase";
+
 export default function Navbar() {
+  const { currentUser } = useContext(UserContext);
+ 
   return (
     <>
       <header className="navbar">
@@ -20,7 +26,13 @@ export default function Navbar() {
             <Link to="Contact">contact</Link>
           </li>
           <li>
-            <Link to="Sign-in">sign in</Link>
+            {!currentUser ? (
+              <Link to="Auth">sign in</Link>
+            ) : (
+              <span className="sign-out-link"   onClick={signOutUser}>
+                Sign out
+              </span>
+            )}
           </li>
           <li>
             <Link to="" className="cart-logo">

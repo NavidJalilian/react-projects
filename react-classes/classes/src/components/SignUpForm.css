@@ -1,12 +1,12 @@
-.signUpForm > form {
+.formContainer > form {
   padding: 1em;
   max-width: 500px;
 }
-.signUpForm > form > div {
+.formContainer > form > div {
   position: relative;
   margin: 1em 0;
 }
-.signUpForm > h1 {
+.formContainer > span {
   text-transform: capitalize;
 }
 .input {
@@ -55,5 +55,6 @@
   z-index: 10;
   /* background: pink; */
   color: red;
+  font-size: 0.7em;
   padding: 0.3em 0.7em;
 }
