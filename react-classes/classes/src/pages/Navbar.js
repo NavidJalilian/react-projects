@@ -4,12 +4,12 @@ import "./Navbar.css";
 import cart from "../images/cart.png";
 import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "../components/Context";
+import { UserContext } from "../contexts/userContext";
 import { signOutUser } from "../utils/firebase";
 
 export default function Navbar() {
   const { currentUser } = useContext(UserContext);
- 
+
   return (
     <>
       <header className="navbar">
@@ -29,7 +29,7 @@ export default function Navbar() {
             {!currentUser ? (
               <Link to="Auth">sign in</Link>
             ) : (
-              <span className="sign-out-link"   onClick={signOutUser}>
+              <span className="sign-out-link" onClick={signOutUser}>
                 Sign out
               </span>
             )}
