@@ -132,4 +132,7 @@ body {
   .btn {
     font-size: 0.8rem;
   }
+  .shop-card {
+    flex-basis: 175px !important;
+  }
 }

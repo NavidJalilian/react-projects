@@ -13,7 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
-          <Route path="Shope" element={<Shop />} />
+          <Route path="Shop" element={<Shop />} />
           {/* <Route path="Contact" element={<Contact />} /> */}
           <Route path="Auth" element={<Authentication />} />
           <Route path="Sing-Up" element={<SignUpForm />} />
