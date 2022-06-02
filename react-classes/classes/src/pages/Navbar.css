@@ -24,26 +24,69 @@
   overflow: visible;
   position: relative;
 }
-.cart-logo::after {
-  content: "";
+.cart-logo::before {
+  content: "2";
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  min-width: 70%;
   min-height: 70%;
+  min-width: 70%;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 1px;
-  bottom: -5px;
-  right: -5px;
+  bottom: 42%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  z-index: 10;
 }
-.cart-logo > img {
-  /* width: 3rem; */
 
-  transform: scale(1.2);
+.cart {
+  position: relative;
+}
+
+.bag {
+  min-width: 200px;
+  position: absolute;
+  z-index: 1;
+  background: #fff;
+  top: 35px;
+  left: -55px;
+  transform: translate(-50%, 0%);
+  max-height: 1000%;
+  overflow: auto;
+  box-shadow: 0 0 3px;
+}
+
+.bag > button {
+  aspect-ratio: 3;
+  display: block;
+  margin: 0.4em auto;
+}
+.bag-item {
+
+  text-align: left;
+  padding: 0.5em;
+  width: 100%;
+  display: flex;
+  align-items: left;
+}
+
+
+.bag-item-info {
+  margin-left: 0.6em;
+}
+.bag-item:hover {
+  background-color: #eee;
+}
+.bag-item > img {
+  width: 50%;
+  max-height: 75px;
+  max-width: 50px;
+}
+
+.cart-logo > img {
+  transform: scale(1.5);
 }
 a {
   overflow: hidden;
 }
-

@@ -29,7 +29,7 @@
 .input:focus + .label,
 .input:not(:placeholder-shown) + .label {
   border-bottom: 1px solid #ccc;
-  top: -5%;
+  top: -10%;
   font-size: 0.8em;
   padding: 0.2em;
   color: #000;

@@ -29,10 +29,12 @@
   cursor: pointer;
   transition: bottom 0.3s cubic-bezier(0.4, 0, 0, 1.29);
 }
-.shop-image:hover > button {
+.shop-image:hover > button,
+.shop-image:active > button {
   bottom: 0;
 }
-.shop-image > img:hover {
+.shop-image > img:hover,
+.shop-image > img:active {
   opacity: 0.6;
 }
 
