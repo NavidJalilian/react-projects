@@ -13,6 +13,7 @@ export default function Navbar() {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
   if (cartItems[0]?.id) setIsCartOpen(true);
+
   return (
     <>
       <header className="navbar">
@@ -38,7 +39,11 @@ export default function Navbar() {
             )}
           </li>
           <li className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
-            <Link to="/Shop" className="cart-logo">
+            <Link
+              to="/Shop"
+              className="cart-logo"
+              data-cart-count={cartItems.length}
+            >
               <img src={cart} alt="" />
             </Link>
             {isCartOpen && <Cart />}
