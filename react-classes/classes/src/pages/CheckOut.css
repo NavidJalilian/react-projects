@@ -28,6 +28,10 @@
   place-items: center;
   font-size: large;
 }
+.checkOut-item:hover,
+.checkOut-item:active {
+  background: #eee;
+}
 .checkOut-item-quantity > * {
   margin: 0 0.2em;
 }

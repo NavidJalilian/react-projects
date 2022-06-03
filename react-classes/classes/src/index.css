@@ -99,6 +99,9 @@ button {
   background-color: rgb(160, 13, 38);
   color: white;
 }
+.page-indicatior {
+  color: black;
+}
 body {
   font-family: "Roboto", sans-serif;
 

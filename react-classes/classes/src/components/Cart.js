@@ -1,7 +1,11 @@
 import React, { useRef } from "react";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
+
 export default function Cart() {
+  const navigate = useNavigate();
+  const naigationHandler = () => navigate("./Check-Out");
   const { cartItems } = useContext(CartContext);
   const buyButton = useRef(null);
   const scrollToBuyBtn = () =>
@@ -22,7 +26,7 @@ export default function Cart() {
             </div>
           ))}
         </div>
-        <button className="btn " ref={buyButton}>
+        <button className="btn " ref={buyButton} onClick={naigationHandler}>
           buy now
         </button>
       </div>

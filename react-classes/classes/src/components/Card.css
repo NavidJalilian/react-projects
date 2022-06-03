@@ -28,10 +28,12 @@
   font-size: 1.75rem;
   transition: transform 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.card:hover > img {
+.card:hover > img,
+.card:active > img {
   transform: scale(1.1);
 }
-.card:hover > .card-heading {
+.card:hover > .card-heading,
+.card:active > .card-heading {
   color: black;
   transform: translate(-50%, -50%) scale(1.1);
   background: rgb(224, 219, 219);

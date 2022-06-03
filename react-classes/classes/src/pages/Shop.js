@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
 import "./Shop.css";
 import { CartContext } from "../contexts/CartContext";
+
 export default function Shope() {
   const { products } = useContext(ProductsContext);
   const { addItemToCart } = useContext(CartContext);
+
   return (
     <div className="shop gallery">
       {products.map((product) => {
