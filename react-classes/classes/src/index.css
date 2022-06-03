@@ -138,4 +138,7 @@ body {
   .shop-card {
     flex-basis: 175px !important;
   }
+  .cart-logo::before {
+    bottom: 45% !important;
+  }
 }
