@@ -8,6 +8,7 @@ export const CartContext = createContext({
   cartItemsCount: 0,
   removeItemFromCart: () => null,
   decrementItemCount: () => null,
+  totalPayment: 0,
 });
 
 const removeItem = (cartItems, productToRemove) =>
@@ -37,6 +38,7 @@ const decrementItem = (cartItems, productToDecrease) =>
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [totalPayment, setTotalPayment] = useState(0);
 
   const cartItemsCount = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -53,19 +55,26 @@ export const CartProvider = ({ children }) => {
     if (productToDecrease.quantity !== 1)
       setCartItems(decrementItem(cartItems, productToDecrease));
   };
+  useEffect(() => {
+    setTotalPayment(
+      cartItems.reduce((total, item) => total + item.quantity * item.price, 0)
+    );
+  }, [cartItems]);
+
+  useEffect(() => {
+    if (cartItemsCount === 1) setIsCartOpen(true);
+  }, [cartItemsCount]);
 
   const value = {
     isCartOpen,
     setIsCartOpen,
     addItemToCart,
     cartItems,
+    totalPayment,
     cartItemsCount,
     removeItemFromCart,
     decrementItemCount,
   };
-  useEffect(() => {
-    if (cartItemsCount === 1) setIsCartOpen(true);
-  }, [cartItemsCount]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
