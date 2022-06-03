@@ -11,17 +11,17 @@
 .navbar > ul > li {
   margin: 0 0.4em;
 }
-.navbar > ul > li > a > img {
+.navbar > ul > li > div > img {
   width: 25px;
 }
 .navbar-logo {
+  cursor: pointer;
   width: 3rem;
 }
 .navbar-logo > a > img {
   transform: scale(3);
 }
 .cart-logo {
-  overflow: visible;
   position: relative;
 }
 .cart-logo::before {
@@ -42,15 +42,16 @@
 
 .cart {
   position: relative;
+  cursor: pointer;
 }
 
 .bag {
-  min-width: 200px;
+  min-width: 300px;
   position: absolute;
   z-index: 1;
   background: #fff;
   top: 35px;
-  left: -55px;
+  left: -90px;
   transform: translate(-50%, 0%);
   max-height: 1000%;
   overflow: auto;
@@ -75,6 +76,7 @@
 }
 .bag-item:hover {
   background-color: #eee;
+  color: black;
 }
 .bag-item > img {
   width: 50%;

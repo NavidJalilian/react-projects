@@ -11,8 +11,8 @@ import { CartContext } from "../contexts/CartContext";
 
 export default function Navbar() {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
-  if (cartItems[0]?.id) setIsCartOpen(true);
+  const { isCartOpen, setIsCartOpen, cartItems, cartItemsCount } =
+    useContext(CartContext);
 
   return (
     <>
@@ -27,7 +27,7 @@ export default function Navbar() {
             <Link to="/Shop">Shop</Link>
           </li>
           <li>
-            <Link to="Contact">contact</Link>
+            <Link to="Check-Out">contact</Link>
           </li>
           <li>
             {!currentUser ? (
@@ -39,13 +39,9 @@ export default function Navbar() {
             )}
           </li>
           <li className="cart" onClick={() => setIsCartOpen(!isCartOpen)}>
-            <Link
-              to="/Shop"
-              className="cart-logo"
-              data-cart-count={cartItems.length}
-            >
+            <div className="cart-logo" data-cart-count={cartItemsCount}>
               <img src={cart} alt="" />
-            </Link>
+            </div>
             {isCartOpen && <Cart />}
           </li>
         </ul>
