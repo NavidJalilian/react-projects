@@ -4,7 +4,7 @@ import { CartContext } from "../contexts/CartContext";
 
 export default function CheckOut() {
   const { cartItems, setIsCartOpen, addItemToCart } = useContext(CartContext);
-
+  setIsCartOpen(false);
   return (
     <>
       <div className="checkOut">

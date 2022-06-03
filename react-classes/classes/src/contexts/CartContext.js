@@ -23,6 +23,7 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 
 export const CartProvider = ({ children }) => {
+  console.log("render");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 

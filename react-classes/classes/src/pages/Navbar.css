@@ -31,9 +31,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  min-height: 70%;
-  min-width: 70%;
-  bottom: 43%;
+  min-height: 80%;
+  min-width: 80%;
+  bottom: 41%;
   right: 50%;
   transform: translate(50%, 50%);
   z-index: 10;
