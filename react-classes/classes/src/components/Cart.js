@@ -10,12 +10,13 @@ export default function Cart() {
   const buyButton = useRef(null);
   const scrollToBuyBtn = () =>
     buyButton.current.scrollIntoView({ block: "center", behavior: "smooth" });
+
   return (
     <div className="">
-      <div className="bag" onLoad={scrollToBuyBtn}>
+      <div className="bag">
         <div className="bag-items">
           {cartItems.map(({ name, quantity, id, imageUrl, price }) => (
-            <div className="bag-item" key={id}>
+            <div className="bag-item" key={id} onLoad={scrollToBuyBtn}>
               <img src={imageUrl} alt={name} />
               <div className="bag-item-info">
                 <h4>{name}</h4>
