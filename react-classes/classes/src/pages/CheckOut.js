@@ -3,14 +3,20 @@ import "./CheckOut.css";
 import { CartContext } from "../contexts/CartContext";
 
 export default function CheckOut() {
-  const { cartItems, setIsCartOpen, addItemToCart } = useContext(CartContext);
+  const {
+    cartItems,
+    setIsCartOpen,
+    addItemToCart,
+    removeItemFromCart,
+    decrementItemCount,
+  } = useContext(CartContext);
   setIsCartOpen(false);
   return (
     <>
       <div className="checkOut">
         <ul className="grid grid-col-5">
           <li>product</li>
-          <li>describtion</li>
+          <li>description</li>
           <li>price</li>
           <li>quantity</li>
           <li>remove</li>
@@ -24,7 +30,12 @@ export default function CheckOut() {
                 <p>{name}</p>
                 <span className="quantity">{price}$</span>
                 <div className="checkOut-item-quantity">
-                  <span className="action-hover">&#10094;</span>
+                  <span
+                    className="action-hover"
+                    onClick={() => decrementItemCount(item)}
+                  >
+                    &#10094;
+                  </span>
                   <span>{quantity}</span>
                   <span
                     className="action-hover"
@@ -34,7 +45,12 @@ export default function CheckOut() {
                   </span>
                 </div>
 
-                <p className="action-hover">&#10005;</p>
+                <p
+                  className="action-hover"
+                  onClick={() => removeItemFromCart(item)}
+                >
+                  &#10005;
+                </p>
               </div>
             );
           })}
