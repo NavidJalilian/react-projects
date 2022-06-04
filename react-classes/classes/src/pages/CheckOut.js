@@ -11,7 +11,6 @@ export default function CheckOut() {
     decrementItemCount,
     totalPayment,
   } = useContext(CartContext);
-  if (cartItems.length === 0) setIsCartOpen(false);
   return (
     <>
       <div className="checkOut">
@@ -31,22 +30,25 @@ export default function CheckOut() {
                 <p>{name}</p>
                 <span className="quantity">{price}$</span>
                 <div className="checkOut-item-quantity">
-                  <span
+                  <button
+                    title="Decrement Quantity"
                     className="action-hover"
                     onClick={() => decrementItemCount(item)}
                   >
                     &#10094;
-                  </span>
+                  </button>
                   <span>{quantity}</span>
-                  <span
+                  <button
+                    title="Increase Quantity"
                     className="action-hover"
                     onClick={() => addItemToCart(item)}
                   >
                     &#10095;
-                  </span>
+                  </button>
                 </div>
 
                 <p
+                  title="Remove item"
                   className="action-hover  cross-icon "
                   onClick={() => removeItemFromCart(item)}
                 >
