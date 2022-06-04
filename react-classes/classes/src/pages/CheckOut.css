@@ -45,6 +45,8 @@
   color: black;
   cursor: pointer;
 }
-.scale-up {
-  transform: scale(1.3);
+.checkOut-total {
+  display: block;
+  color: black;
+  margin: 3em 1em;
 }

@@ -11,7 +11,7 @@ export default function CheckOut() {
     decrementItemCount,
     totalPayment,
   } = useContext(CartContext);
-  setIsCartOpen(false);
+  if (cartItems.length === 0) setIsCartOpen(false);
   return (
     <>
       <div className="checkOut">
@@ -57,7 +57,7 @@ export default function CheckOut() {
           })}
         </div>
         <hr />
-        <span>Total: {totalPayment}$</span>
+        <span className="checkOut-total">Total: {totalPayment}$</span>
       </div>
     </>
   );
