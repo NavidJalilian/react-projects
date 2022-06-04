@@ -47,7 +47,7 @@ export default function CheckOut() {
                 </div>
 
                 <p
-                  className="action-hover"
+                  className="action-hover  cross-icon "
                   onClick={() => removeItemFromCart(item)}
                 >
                   &#10005;
