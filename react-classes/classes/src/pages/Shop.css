@@ -1,3 +1,10 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.section-title {
+  text-transform: capitalize;
+}
 .shop-card {
   flex: 1 0 250px;
   padding: 0.8em;
@@ -27,7 +34,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  transition: bottom 0.3s cubic-bezier(0.4, 0, 0, 1.29);
+  transition: bottom 0.5s cubic-bezier(0.4, 0, 0, 1.29);
 }
 .shop-image:hover > button,
 .shop-image:active > button {

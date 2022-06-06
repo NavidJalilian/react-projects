@@ -16,9 +16,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background-color: rgba(238, 220, 220, 0.678);
-  padding: 0.5em 1em;
+  padding: 1em 1.5em;
   color: rgb(99, 95, 95);
   text-transform: uppercase;
   border: 2px solid rgb(5, 4, 4);
@@ -37,10 +36,4 @@
   color: black;
   transform: translate(-50%, -50%) scale(1.1);
   background: rgb(224, 219, 219);
-}
-
-.gallery {
-  display: flex;
-  gap: 0.5em;
-  flex-wrap: wrap;
 }
