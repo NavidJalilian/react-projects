@@ -5,7 +5,6 @@ import { CartContext } from "../contexts/CartContext";
 export default function CheckOut() {
   const {
     cartItems,
-    setIsCartOpen,
     addItemToCart,
     removeItemFromCart,
     decrementItemCount,
@@ -59,7 +58,7 @@ export default function CheckOut() {
           })}
         </div>
         <hr />
-        <span className="checkOut-total">Total: {totalPayment}$</span>
+        <span className="checkOut-total">Total : {totalPayment}$</span>
       </div>
     </>
   );
