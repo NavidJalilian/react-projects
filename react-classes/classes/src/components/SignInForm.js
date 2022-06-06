@@ -6,7 +6,6 @@ import {
   createUserDocFromAuth,
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
-  
 } from "../utils/firebase";
 const defaultFormState = {
   email: "",
@@ -36,7 +35,7 @@ export default function SignInForm() {
     setIsLoading(true);
 
     try {
-       await signInAuthWithEmailAndPassword(email, password);
+      await signInAuthWithEmailAndPassword(email, password);
       setFormState(defaultFormState);
       setIsLoading(false);
     } catch (e) {

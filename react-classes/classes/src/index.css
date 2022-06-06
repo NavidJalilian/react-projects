@@ -108,13 +108,7 @@ body {
   padding: 0 2em;
   color: gray;
 }
-.spinner {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border-right: 3px solid #333;
-  animation: spin 0.5s linear infinite;
-}
+
 @keyframes spin {
   to {
     transform: rotate(1turn);
