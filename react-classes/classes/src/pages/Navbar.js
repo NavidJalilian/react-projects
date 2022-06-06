@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { signOutUser } from "../utils/firebase";
 import Cart from "../components/Cart";
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../contexts/cartContext";
 
 export default function Navbar() {
   const { currentUser } = useContext(UserContext);

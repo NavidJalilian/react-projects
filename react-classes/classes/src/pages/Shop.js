@@ -1,33 +1,46 @@
-import React, { useContext } from "react";
-import { ProductsContext } from "../contexts/ProductsContext";
+import { useContext } from "react";
+import { CategoriesContext } from "../contexts/categoriesContext";
 import "./Shop.css";
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../contexts/cartContext";
 
 export default function Shope() {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   const { addItemToCart } = useContext(CartContext);
 
   return (
-    <div className="shop gallery">
-      {products.map((product) => {
-        const { id, name, imageUrl, price } = product;
-        const addProductToCart = () => addItemToCart(product);
+    <>
+      {Object.keys(categoriesMap).map((title) => {
+        //
 
         return (
-          <div className="shop-card" key={id}>
-            <div className="shop-image">
-              <img src={imageUrl} alt={name} />
-              <button className="btn btn-inverted" onClick={addProductToCart}>
-                add to cart
-              </button>
+          <>
+            <h2 className="section-title">{title}</h2>
+            <div className="shop gallery">
+              {categoriesMap[title].map((item) => {
+                const { id, name, imageUrl, price } = item;
+                const addProductToCart = () => addItemToCart(item);
+                return (
+                  <div className="shop-card" key={id}>
+                    <div className="shop-image">
+                      <img src={imageUrl} alt={name} />
+                      <button
+                        className="btn btn-inverted"
+                        onClick={addProductToCart}
+                      >
+                        add to cart
+                      </button>
+                    </div>
+                    <div className="shop-card-content">
+                      <span>{name}</span>
+                      <span>{price}$</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <div className="shop-card-content">
-              <span>{name}</span>
-              <span>{price}$</span>
-            </div>
-          </div>
+          </>
         );
       })}
-    </div>
+    </>
   );
 }
