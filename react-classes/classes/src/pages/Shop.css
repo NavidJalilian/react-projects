@@ -4,6 +4,12 @@
 }
 .section-title {
   text-transform: capitalize;
+  color: rgb(56, 53, 53);
+}
+.section-title:hover,
+.section-title:active {
+  text-decoration: underline;
+  cursor: pointer;
 }
 .shop-card {
   flex: 1 0 250px;
