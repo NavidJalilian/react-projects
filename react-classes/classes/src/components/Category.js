@@ -1,5 +1,7 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/cartContext";
+import CategorySection from "./CategorySection";
 
 export default function Category({ title, item }) {
   const { addItemToCart } = useContext(CartContext);
@@ -7,33 +9,17 @@ export default function Category({ title, item }) {
   return (
     <>
       <h2 href="">
-        <span className="section-title">{title}</span>
+        <Link to={"/Shop/" + title}>
+          <span className="section-title">{title}</span>
+        </Link>{" "}
       </h2>
 
       <div className="shop gallery">
         {item
           .filter((_, idx) => idx < 4)
-          .map((product) => {
-            const { id, name, imageUrl, price } = product;
-            const addProductToCart = () => addItemToCart(product);
-            return (
-              <div className="shop-card" key={id}>
-                <div className="shop-image">
-                  <img src={imageUrl} alt={name} />
-                  <button
-                    className="btn btn-inverted"
-                    onClick={addProductToCart}
-                  >
-                    add to cart
-                  </button>
-                </div>
-                <div className="shop-card-content">
-                  <span>{name}</span>
-                  <span>{price}$</span>
-                </div>
-              </div>
-            );
-          })}
+          .map((product) => (
+            <CategorySection product={product} />
+          ))}
       </div>
     </>
   );

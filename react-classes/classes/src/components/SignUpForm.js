@@ -6,6 +6,7 @@ import {
 import "./SignUpForm.css";
 import FormInput from "./FormInput";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 const defaultFormState = {
   displayName: "",
   email: "",
@@ -48,9 +49,7 @@ export default function SignUpForm() {
       setIsLoading(false);
 
       if (e.code === "auth/email-already-in-use") {
-        console.log("done");
         setEmailIsUsed(true);
-        setFormState(defaultFormState);
       }
     }
   };
@@ -125,7 +124,7 @@ export default function SignUpForm() {
           <button type="submit" className="btn">
             sign up
           </button>
-          {isLoading && <div className="spinner"></div>}
+          {isLoading && <Loader />}
         </form>
       </section>
     </>
