@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../contexts/cartContext";
 import CategorySection from "./CategorySection";
 
 export default function Category({ title, item }) {
-  const { addItemToCart } = useContext(CartContext);
 
   return (
     <>
