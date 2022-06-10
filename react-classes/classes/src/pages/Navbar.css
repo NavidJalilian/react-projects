@@ -77,10 +77,15 @@
   background-color: #eee;
   color: black;
 }
-.bag-item > img {
+.bag-item-image {
   width: 50%;
   max-height: 75px;
   max-width: 50px;
+  object-fit: cover;
+}
+.bag-item-image > img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .cart-logo > img {

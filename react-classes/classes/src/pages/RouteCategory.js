@@ -23,7 +23,9 @@ export default function RouteCategory() {
       </div>
       <div className="route-category-section">
         {products &&
-          products.map((product) => <CategorySection product={product} />)}
+          products.map((product) => (
+            <CategorySection product={product} key={product.id} />
+          ))}
       </div>
     </>
   );

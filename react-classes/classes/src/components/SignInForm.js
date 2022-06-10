@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./SignUpForm.css";
 import FormInput from "./FormInput";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import {
   signInAuthWithEmailAndPassword,
 } from "../utils/firebase";
 import Loader from "./Loader";
+
 const defaultFormState = {
   email: "",
   password: "",
@@ -19,11 +20,14 @@ export default function SignInForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isPassowrdValid, setIsPasswordValid] = useState(true);
   const [isEmailvalid, setIsEmailValid] = useState(true);
+  const inputFoucsRef = useRef();
+  if (inputFoucsRef.current) console.log("is on");
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocFromAuth(user);
   };
+
   const handleChange = (e) => {
     setIsPasswordValid(true);
     setIsEmailValid(true);
@@ -60,6 +64,7 @@ export default function SignInForm() {
             data-error="User Not Found !"
           >
             <FormInput
+             
               type="email"
               id="email"
               placeholder=" "

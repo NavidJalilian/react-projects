@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import logo from "../images/crown.png";
 import "./Navbar.css";
 import cart from "../images/cart.png";

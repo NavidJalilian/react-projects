@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import CategorySection from "./CategorySection";
 
 export default function Category({ title, item }) {
-
   return (
     <>
       <h2 href="">
@@ -15,7 +14,7 @@ export default function Category({ title, item }) {
         {item
           .filter((_, idx) => idx < 4)
           .map((product) => (
-            <CategorySection product={product} />
+            <CategorySection product={product} key={product.id} />
           ))}
       </div>
     </>
