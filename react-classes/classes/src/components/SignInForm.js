@@ -7,6 +7,7 @@ import {
   signInWithGooglePopup,
   signInAuthWithEmailAndPassword,
 } from "../utils/firebase";
+import Loader from "./Loader";
 const defaultFormState = {
   email: "",
   password: "",
@@ -107,9 +108,8 @@ export default function SignInForm() {
               google sign in
             </button>
           </div>
-
-          {isLoading && <div className="spinner"></div>}
         </form>
+        {isLoading && <Loader />}
       </section>
     </>
   );
