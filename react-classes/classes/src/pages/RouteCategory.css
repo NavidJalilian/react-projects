@@ -3,6 +3,7 @@
   text-transform: capitalize;
   color: rgb(59, 52, 52);
   margin: 0.5em 0;
+  font-size: 2rem;
 }
 .route-category-section {
   display: grid;
