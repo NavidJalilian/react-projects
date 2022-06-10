@@ -1,9 +1,10 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Card.css";
-
-export default function Card({ title, url }) {
+export default function Card({ title, url, route }) {
+  const navigate = useNavigate();
+  const navigationHandler = () => navigate(route);
   return (
-    <div className="card">
+    <div className="card" onClick={navigationHandler}>
       <img src={url} alt={title} />
       <div className="card-heading">
         <h3>{title}</h3>

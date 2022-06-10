@@ -14,7 +14,7 @@
   text-transform: capitalize;
   place-items: center;
   font-size: 0.85em;
-  outline: 1px solid rgb(218, 217, 217);
+  outline: 1px solid rgb(190, 190, 190);
   padding: 1em 0.5em;
 }
 .checkOut-item > img {
