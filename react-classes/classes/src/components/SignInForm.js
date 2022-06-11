@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./SignUpForm.css";
 import FormInput from "./FormInput";
 import { Link } from "react-router-dom";
@@ -20,8 +20,6 @@ export default function SignInForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isPassowrdValid, setIsPasswordValid] = useState(true);
   const [isEmailvalid, setIsEmailValid] = useState(true);
-  const inputFoucsRef = useRef();
-  if (inputFoucsRef.current) console.log("is on");
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
@@ -57,14 +55,13 @@ export default function SignInForm() {
   return (
     <>
       <section className="formContainer">
-        <span>Sign Up With Email And Password</span>
+        <span>Sign In With Email And Password</span>
         <form action="" onSubmit={handleSubmit}>
           <div
             className={isEmailvalid ? "" : "error-notif"}
             data-error="User Not Found !"
           >
             <FormInput
-             
               type="email"
               id="email"
               placeholder=" "
@@ -104,8 +101,8 @@ export default function SignInForm() {
             <button type="submit" className="btn">
               sign in
             </button>
-
             <button
+              target="blank"
               type="button"
               className="btn btn-google"
               onClick={signInWithGoogle}
@@ -114,6 +111,7 @@ export default function SignInForm() {
             </button>
           </div>
         </form>
+
         {isLoading && <Loader />}
       </section>
     </>
