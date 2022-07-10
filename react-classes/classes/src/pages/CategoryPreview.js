@@ -1,18 +1,24 @@
-import { useContext } from "react";
-import { CategoriesContext } from "../contexts/categoriesContext";
 import "./Shop.css";
 import Category from "../components/Category";
 import SkeletonLoading from "../components/SkeletonLoading";
+import "./CategoryPreview.css";
+import { useSelector } from "react-redux/es/exports";
 
 export default function CategoryPreview() {
-  const { categoriesMap, isLoading } = useContext(CategoriesContext);
-
+  const isLoading = useSelector((state) => state.categories.isLoading);
+  const categoriesMap = useSelector((state) => state.categories.categoriesMap);
   return (
     <>
       {isLoading && <SkeletonLoading />}
+
       {Object.keys(categoriesMap).map((title) => {
         const item = categoriesMap[title];
-        return <Category item={item} key={title} title={title} />;
+
+        return (
+          <div className="category-preview" key={title}>
+            <Category item={item} title={title} />
+          </div>
+        );
       })}
     </>
   );
