@@ -12,6 +12,7 @@ export default function CategorySection({ product }) {
   const handleAddToCart = (product) => {
     addProductToCart(product);
     setIsAddedToCart(true);
+    
   };
 
   useEffect(() => {
