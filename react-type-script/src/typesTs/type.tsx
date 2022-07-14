@@ -10,3 +10,10 @@ export type ButtonProps = {
   type: "submit" | "reset" | "button";
   children?: React.ReactNode;
 };
+export type ApiEmojy = {
+  name: string;
+  category: string;
+  group: string;
+  htmlCode: [string];
+  unicode: [string];
+};
