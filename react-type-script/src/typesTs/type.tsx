@@ -12,12 +12,21 @@ export type ButtonProps = {
 };
 
 export type CardProps = {
-   id: number;
+  id: number;
   name: string;
   username: string;
   email: string;
 
-  address: string[];
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
   website: string;
   company: string[];
 };
