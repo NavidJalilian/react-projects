@@ -10,10 +10,15 @@ export type ButtonProps = {
   type: "submit" | "reset" | "button";
   children?: React.ReactNode;
 };
-export type ApiEmojy = {
+
+export type CardProps = {
+   id: number;
   name: string;
-  category: string;
-  group: string;
-  htmlCode: [string];
-  unicode: [string];
+  username: string;
+  email: string;
+
+  address: string[];
+  website: string;
+  company: string[];
 };
+export type monsterApi = CardProps[];

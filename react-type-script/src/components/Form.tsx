@@ -1,32 +1,26 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
-import { ApiEmojy } from "../typesTs/type";
+import { monsterApi } from "../typesTs/type";
+import Card from "./Card";
+
+function fetchingEmojies(url: string): Promise<monsterApi> {
+  return fetch(url)
+    .then((res) => res.json())
+    .then((data) => data);
+}
+
 export default function Form() {
   const [value, setValue] = useState("");
-  const [isVisble, setIsVisble] = useState(false);
-  const [emojies, setEmojies] = useState({});
+  const [monster, setMonster] = useState<monsterApi>([]);
 
-  function onClickHandler() {
-    setIsVisble(!isVisble);
-  }
   function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.currentTarget);
     setValue(e.target.value);
   }
   useEffect(() => {
-    const fetchData = () => {
-      try {
-        fetch("https://emojihub.herokuapp.com/api/random")
-          .then((response) => response.json())
-          .then((quotes) => setEmojies({ ...quotes }))
-          console.log(emojies)
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    fetchData();
+    fetchingEmojies("https:jsonplaceholder.typicode.com/users").then((data) =>
+      setMonster(data)
+    );
   }, []);
 
   return (
@@ -38,10 +32,9 @@ export default function Form() {
           placeholder="search"
           onChangeHandler={onChangeHandler}
         />
-        <Button onClickHandler={onClickHandler} type={"submit"}>
-          generate
-        </Button>
-        {isVisble && <div>{value}</div>}
+        <div className="grid grid-cols-5 gap-5 px-4">
+          {monster && monster.map((item) => <Card key={item.id} {...item} />)}
+        </div>
       </form>
     </>
   );
