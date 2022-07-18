@@ -32,7 +32,10 @@ export default function Form() {
           placeholder="search"
           onChangeHandler={onChangeHandler}
         />
-        <div className="grid grid-cols-5 gap-5 px-4">
+        <div
+          className="grid lg:grid-cols-5 grid-cols-1
+        gap-5 px-4"
+        >
           {monster && monster.map((item) => <Card key={item.id} {...item} />)}
         </div>
       </form>
