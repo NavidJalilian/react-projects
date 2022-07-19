@@ -1,9 +1,9 @@
 import { ActionTypes } from "../contants/action-types";
 
-export const setProcducts = (products) => {
+export const setProcducts = (AllProducts) => {
   return {
     type: ActionTypes.SET_PRODUCTS,
-    payload: products,
+    payload: AllProducts,
   };
 };
 export const selectedProduct = (product) => {

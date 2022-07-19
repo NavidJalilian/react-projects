@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-
 export default function Navbar() {
   const [isVisble, setisVisble] = useState(false);
   return (
-    <nav className="fixed w-full  flex flex-wrap items-center
-     justify-between px-2 py-3 bg-gray-500 ">
-      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div className="w-full   relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+    <nav
+      className="fixed w-full   flex flex-wrap items-center
+     justify-between px-2 py-3 bg-gray-500  "
+    >
+      <div
+        className="container backdrop-blur-sm
+       px-4 mx-auto flex flex-wrap items-center justify-between"
+      >
+        <div
+          className="w-full   relative flex justify-between 
+        lg:w-auto  px-4 lg:static lg:block lg:justify-start"
+        >
           <a
             className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
             href="#pablo"
@@ -26,12 +33,12 @@ export default function Navbar() {
         </div>
         <div
           className={
-            "md:flex flex-grow items-center transition-all duration-300 ease-in " +
+            "lg:flex  flex-grow items-center transition-all duration-300 ease-in " +
             (isVisble ? " flex" : "hidden")
           }
           id="example-navbar-warning"
         >
-          <ul className=" flex-row list-none mr-auto md:flex  ">
+          <ul className=" flex-row list-none mr-auto lg:flex ">
             <li className="nav-item ">
               <a
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-200 hover:opacity-75"

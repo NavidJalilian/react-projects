@@ -1,21 +1,38 @@
-import Card from "./components/Card";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import Home from "./pages/Home";
+import CardDetails from "./pages/CardDetails";
+import ShopLanding from "./pages/ShopLanding";
+import axios from "axios";
+import { useEffect } from "react";
+import { setProcducts } from "./redux/actions/productAction";
 
 function App() {
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const fetchProducts = async () => {
+    const response = await axios
+      .get("https://fakestoreapi.com/products")
+      .catch((error) => console.log(error));
+    dispatch(setProcducts(response.data));
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
   return (
-    <div className="">
-      <Navbar />
-      <div
-        className="gallery pt-12 grid gap-2 place-items-center md:grid-cols-2 
-       lg:grid-cols-3  sm:grid-cols-2"
-      >
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<ShopLanding products={products} />} />
+          <Route path="/products/:id" element={<CardDetails />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
 export default App;
+{
+}
