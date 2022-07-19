@@ -6,10 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 export default function CardDetails() {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.products.selectedProduct);
-
+  window.scrollTo(0, 0);
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
