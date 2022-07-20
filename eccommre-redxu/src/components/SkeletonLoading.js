@@ -2,7 +2,11 @@ import React from "react";
 
 export default function SkeletonLoading() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4 w-full">
+    <div
+      className="grid
+     grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+     xl:grid-cols-4 gap-6 pt-32 w-full"
+    >
       <div className="relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md rounded-lg">
         <div className="animate-pulse flex flex-col">
           <div className="rounded w-full h-52 bg-gray-200"></div>

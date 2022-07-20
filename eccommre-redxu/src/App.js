@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { setProcducts } from "./redux/actions/productAction";
 
 function App() {
-  const { products } = useSelector((state) => state.products);
+  const  {products}  = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const fetchProducts = async () => {
     const response = await axios

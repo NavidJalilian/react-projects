@@ -46,7 +46,6 @@ export default function Card({
   category,
 }) {
   const shortTitle = title.toString().split(" ").slice(0, 2).join(" ");
-
   return (
     <div className="m-3 ">
       <div

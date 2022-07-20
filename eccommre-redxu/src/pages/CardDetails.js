@@ -2,27 +2,39 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { selectedProduct } from "../redux/actions/productAction";
 import { useDispatch, useSelector } from "react-redux";
-
+import SkeletonLoading from "../components/SkeletonLoading";
 export default function CardDetails() {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
-
+  const [isLoding, setIsLoding] = useState(true);
   const { id } = useParams();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.products.selectedProduct);
-  window.scrollTo(0, 0);
+
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(selectedProduct(data));
-      });
+    setIsLoding(true);
+    const fetching = async () =>
+      fetch(`https://fakestoreapi.com/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(selectedProduct(data));
+          setIsLoding(false);
+        });
+    fetching();
+    window.scrollTo(0, 0);
   }, []);
+
+  if (isLoding)
+    return (
+      <div className="container m-auto max-h-72">
+        <SkeletonLoading />
+      </div>
+    );
 
   return (
     <div
       className="md:flex pt-20 
-    sm:pt-24 items-start justify-center py-12
+    sm:pt-24 items-start justify-center  py-12
      2xl:px-20 md:px-6 px-4"
     >
       <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
@@ -41,8 +53,8 @@ export default function CardDetails() {
       </div>
       <div className="xl:w-2/5  md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
         <div className="border-b border-gray-200 pb-6">
-          <p className="text-sm leading-none text-gray-600">
-            Balenciaga Fall Collection
+          <p className="text-sm leading-none text-gray-600 uppercase">
+            {productDetail && productDetail.category}
           </p>
           <h1
             className="
@@ -55,7 +67,7 @@ export default function CardDetails() {
                 mt-2
               "
           >
-            Balenciaga Signature Sweatshirt
+            {productDetail && productDetail.title}
           </h1>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
@@ -95,25 +107,11 @@ export default function CardDetails() {
           </div>
         </div>
         <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-          <p className="text-base leading-4 text-gray-800">Size</p>
+          <p className="text-base leading-4 text-gray-800">Price</p>
           <div className="flex items-center justify-center">
-            <p className="text-sm leading-none text-gray-600 mr-3">38.2</p>
-            <svg
-              className="cursor-pointer"
-              width="6"
-              height="10"
-              viewBox="0 0 6 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 1L5 5L1 9"
-                stroke="#4B5563"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <p className="text-sm leading-none text-gray-600 mr-3">
+              {productDetail && productDetail.price + " $"}
+            </p>
           </div>
         </div>
         <button
@@ -171,11 +169,8 @@ export default function CardDetails() {
           Check availability in store
         </button>
         <div>
-          <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-            It is a long established fact that a reader will be distracted by
-            thereadable content of a page when looking at its layout. The point
-            of usingLorem Ipsum is that it has a more-or-less normal
-            distribution of letters.
+          <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
+            {productDetail && productDetail.description}
           </p>
           <p className="text-base leading-4 mt-7 text-gray-600">
             Product Code: 8BN321AF2IF0NYA
