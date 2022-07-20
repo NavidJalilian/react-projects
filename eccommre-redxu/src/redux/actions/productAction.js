@@ -12,3 +12,10 @@ export const selectedProduct = (product) => {
     payload: product,
   };
 };
+
+export const setIsLoding = (isLoading) => {
+  return {
+    type: ActionTypes.SET_PRODUCTS_LOADING,
+    payload: isLoading,
+  };
+};
